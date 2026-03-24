@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="./output.css" rel="stylesheet">
+</head>
+
+<body 
+class="font-sans bg-gray-100">
+
+  <!-- Navbar -->
+  <nav class="flex justify-between items-center px-10 py-4 bg-gray-200">
+    <h1 class="text-lg font-semibold text-gray-800">Best City Guide</h1>
+    <ul class="flex space-x-8 text-teal-600 font-medium">
+      <li>ICE CREAM</li>
+      <li>DONUTS</li>
+      <li>TEA</li>
+      <li>COFFEE</li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="bg-teal-500 text-white text-center py-16">
+
+    <!-- ✅ City Logo -->
+    <div class="w-32 h-32 mx-auto rounded-full overflow-hidden bg-blue-900 flex items-center justify-center">
+      <img src="data:image/png;base64,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" 
+           class="w-full h-full object-cover">
+    </div>
+
+    <h2 class="text-3xl font-bold mt-6">The Best City</h2>
+    <p class="mt-2 text-lg">The best drinks and eats in the best city ever.</p>
+  </section>
+
+  <!-- Content -->
+  <section class="grid md:grid-cols-3 gap-10 px-10 py-12">
+
+    <!-- Left -->
+    <div>
+      <h3 class="text-xl font-semibold mb-4">Welcome!</h3>
+      <p class="text-gray-700 text-sm leading-6">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magni, neque molestiae explicabo est sint aspernatur impedit porro iste consequuntur earum facere quibusdam fugiat sit voluptatibus eaque. Doloribus praesentium, quaerat, facere recusandae aspernatur quos debitis veritatis sed nulla cum quidem eum.
+      </p>
+    </div>
+
+    <!-- Center (Food Image) -->
+  <div>
+  <h3 class="text-xl font-semibold mb-4 text-center">Great food</h3>
+
+  <!-- Food Image -->
+  <div class="bg-teal-500 p-4 rounded">
+    <img src="https://as2.ftcdn.net/jpg/05/40/34/53/1000_F_540345320_cUPCYSA3dGUJgMltXeYOQdnuqB6uFRcu.jpg"
+         class="w-full h-48 object-cover rounded">
+  </div>
+
+  <!-- ✅ Added Content -->
+  <p class="text-gray-700 text-sm mt-4 leading-6 text-center">
+    Croissant macaroon pie brownie. Cookie marshmallow liquorice 
+    gingerbread caramels toffee I love chocolate. Wafer lollipop 
+    dessert. Bonbon jelly beans pudding dessert sugar plum. 
+
+  </p>
+</div>
+    <!-- Right -->
+    <div>
+      <h3 class="text-xl font-semibold mb-4">How to get here</h3>
+      <p class="text-gray-700 text-sm">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Rem id dolores cum ipsa sit ea reiciendis ex quaerat ullam sapiente in eligendi debitis adipisci, soluta dolore perspiciatis sequi amet, distinctio incidunt ipsum, culpa hic neque provident fuga. Quasi, eveniet fuga.
+      </p>
+    </div>
+
+  </section>
+
+</body>
+
+</html>
