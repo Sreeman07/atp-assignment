@@ -1,0 +1,90 @@
+//Create employees Collection and Insert 5 Documents
+db.employees.insertMany([
+{
+ empId: "E101",
+ name: "Vikas",
+ skills: ["React", "Node"],
+ experiences: [
+  {
+   companyName: "TCS",
+   yearsOfExp: "2"
+  }
+ ]
+},
+{
+ empId: "E102",
+ name: "Rahul",
+ skills: ["Java", "Spring"],
+ experiences: [
+  {
+   companyName: "Infosys",
+   yearsOfExp: "3"
+  }
+ ]
+},
+{
+ empId: "E103",
+ name: "Anita",
+ skills: ["React", "Angular"],
+ experiences: [
+  {
+   companyName: "Wipro",
+   yearsOfExp: "2"
+  }
+ ]
+},
+{
+ empId: "E104",
+ name: "Kiran",
+ skills: ["Python", "Django"],
+ experiences: [
+  {
+   companyName: "Capgemini",
+   yearsOfExp: "4"
+  }
+ ]
+},
+{
+ empId: "E105",
+ name: "Ravi",
+ skills: ["Node", "MongoDB"],
+ experiences: [
+  {
+   companyName: "HCL",
+   yearsOfExp: "1"
+  }
+ ]
+}
+])
+
+//Find Employees with React Skill
+db.employees.find({ skills: "React" })
+// Add New Skill "Express"
+db.employees.updateMany(
+ {},
+ { $push: { skills: "Express" } }
+)
+
+// Add New Experience
+db.employees.updateOne(
+ { empId: "E101" },
+ {
+  $push: {
+   experiences: {
+    companyName: "Amazon",
+    yearsOfExp: "2"
+   }
+  }
+ }
+)
+
+//Delete First Experience
+db.employees.updateOne(
+ { empId: "E101" },
+ { $pop: { experiences: -1 } }
+)
+
+// Add Address to Employee whose name is Vikas
+db.employees.updateOne(
+ { name: "Vikas" },
+ { $set: { address: "Hyderabad" } }
