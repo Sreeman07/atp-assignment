@@ -56,7 +56,6 @@ Changes made in copied object do not affect original object.
 
 Methods Used
 structuredClone()
-JSON.parse(JSON.stringify())
 
 ### Examples explaining:
 
