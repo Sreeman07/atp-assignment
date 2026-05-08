@@ -54,9 +54,6 @@ A deep copy creates a completely independent copy of an object, including nested
 
 Changes made in copied object do not affect original object.
 
-Methods Used
-structuredClone()
-
 ### Examples explaining:
 
 Shallow Copy
