@@ -1,41 +1,60 @@
-import exp from 'express'
-const app=exp()
-app.use(exp.json())
-const port=4000
-app.listen(port,()=>console.log(`server listening port ${port}...`))
-let users=[]
-app.get('/users',(req,res)=>{
-    res.json({message:"all users",payload:users})
+import exp from 'express' 
+export const productApp=exp.Router()
+//create product API with below operations
+let products=[]
+//create new product({productID,name,brand,price})
+productApp.post('/products',(req,res)=>{
+    //adding request to a variable
+    let newProd=req.body
+    //assign it to the array
+    products.push(newProd)
+    //responding the create 
+    res.json({message:"product created"})
 })
-app.get('/users/:brand',(req,res)=>{
-    let brandUrl=req.params.brand
-    let user=users.find(userobj=>userobj.brand===brandUrl)
-    if(!user){
-        return res.json({message:"brand not found"})
+//read all products
+productApp.get('/products',(req,res)=>{
+    res.json({message:"all products",load:products})
+})
+//read all product by brand
+productApp.get('/products/:brand',(req,res)=>{
+    //geting the brand from end point
+    let nbrand=req.params.brand
+    // filtering by brands 
+    let rBrand=products.find((elements)=>elements.brand==nbrand)
+    if(rBrand){
+    res.json({message:"this res for get products req",payload:rBrand})
     }
-    res.json({message:"a brand",payload:user})
+    else{
+        res.json({message:"product not found"})
+    }
+   
 })
-app.post('/users',(req,res)=>{
-    const newUser=req.body
-    users.push(newUser)
-    res.json({message:"user created"})
-})
-//route to handle PUT request of client 
-app.put('/users',(req,res)=>{
-let modifieduser=req.body
-let index=users.findIndex(userobj=>userobj.brand===modifieduser.brand)
-if(index===-1){
-    return res.json({message:"user not found"})
-}
-users.splice(index,1,modifieduser)
-res.json({message:"user updated"})
-})
-app.delete('/users/:id',(req,res)=>{
- let idUrl=Number(req.params.id)
- let index=users.findIndex(userobj=>userobj.id===idUrl)
- if(index===-1){
-    return res.json({message:"user not found to delete"})
- }
-users.splice(index,1)
-res.json({message:"user removed"})
-})
+//update a product
+productApp.put('/products',(req,res)=>{
+    //geting the body
+    let Nproduct=req.body
+    //finding index
+    let index=products.findIndex(prodobj=>prodobj.productId==Nproduct.productId)
+    // checking is it empty
+  if(index==-1){
+    return res.json({message:"no such product is available"})}
+  //slicing the data and replacing it 
+    products.splice(index,1,Nproduct)
+  //responding the completion
+  res.json({message:"updation completed"})
+  }
+)
+//delete A product by id
+productApp.delete('/products/:id',(req,res)=>{
+  //geting the body
+    let idofUrl=Number(req.params.id)
+   //find index
+   let index=products.findIndex((elements)=>elements.productId==idofUrl)
+    // checking is it empty
+  if(index==-1){
+    return res.json({message:"no such product is available"})}
+  //slicing the data and removing the data
+  products.splice(index,1)
+  //responding the completion
+  res.json({message:"deletion completed "})
+  })

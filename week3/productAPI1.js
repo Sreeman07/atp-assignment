@@ -1,53 +1,92 @@
 import express from "express";
-import { productModel1 } from "../models/productModel1.js";
+
+import { productModel1 } from "./productModel1.js";
 
 export const productApp = express.Router();
 
 
-// Create Product
+
+// CREATE PRODUCT
 productApp.post("/products", async (req, res) => {
+
     try {
+
         const newProduct = new productModel1(req.body);
-        const product = await newProduct.save();
 
-        res.status(201).send({ message: "Product created", payload: product });
+        const savedProduct = await newProduct.save();
+
+        res.status(201).send({
+            message: "Product Created",
+            payload: savedProduct
+        });
 
     } catch (err) {
-        res.status(500).send({ message: "Error creating product", error: err.message });
+
+        res.status(500).send({
+            message: "Error Creating Product",
+            error: err.message
+        });
     }
 });
 
 
-// Read All Products
+
+
+// GET ALL PRODUCTS
 productApp.get("/products", async (req, res) => {
+
     try {
+
         const products = await productModel1.find();
-        res.send({ message: "All products", payload: products });
+
+        res.send({
+            message: "All Products",
+            payload: products
+        });
 
     } catch (err) {
-        res.status(500).send({ message: "Error fetching products" });
+
+        res.status(500).send({
+            message: "Error Fetching Products"
+        });
     }
 });
 
 
-// Read Product by productId
+
+
+// GET PRODUCT BY ID
 productApp.get("/products/:productId", async (req, res) => {
+
     try {
+
         const pid = req.params.productId;
 
-        const product = await productModel1.findOne({ productId: pid });
+        const product = await productModel1.findOne({
+            productId: pid
+        });
 
-        res.send({ message: "Product found", payload: product });
+        res.send({
+            message: "Product Found",
+            payload: product
+        });
 
     } catch (err) {
-        res.status(500).send({ message: "Error fetching product" });
+
+        res.status(500).send({
+            message: "Error Fetching Product"
+        });
     }
 });
 
 
-// Update Product by productId
+
+
+// UPDATE PRODUCT
 productApp.put("/products/:productId", async (req, res) => {
+
     try {
+
         const pid = req.params.productId;
 
         const updatedProduct = await productModel1.findOneAndUpdate(
@@ -56,24 +95,42 @@ productApp.put("/products/:productId", async (req, res) => {
             { new: true }
         );
 
-        res.send({ message: "Product updated", payload: updatedProduct });
+        res.send({
+            message: "Product Updated",
+            payload: updatedProduct
+        });
 
     } catch (err) {
-        res.status(500).send({ message: "Error updating product" });
+
+        res.status(500).send({
+            message: "Error Updating Product"
+        });
     }
 });
 
 
-// Delete Product by productId
+
+
+// DELETE PRODUCT
 productApp.delete("/products/:productId", async (req, res) => {
+
     try {
+
         const pid = req.params.productId;
 
-        const deletedProduct = await productModel1.findOneAndDelete({ productId: pid });
+        const deletedProduct = await productModel1.findOneAndDelete({
+            productId: pid
+        });
 
-        res.send({ message: "Product deleted", payload: deletedProduct });
+        res.send({
+            message: "Product Deleted",
+            payload: deletedProduct
+        });
 
     } catch (err) {
-        res.status(500).send({ message: "Error deleting product" });
+
+        res.status(500).send({
+            message: "Error Deleting Product"
+        });
     }
 });

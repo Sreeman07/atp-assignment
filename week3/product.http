@@ -1,43 +1,41 @@
-### Create Product
+### CREATE PRODUCT
 POST http://localhost:3000/product-api/products
 Content-Type: application/json
 
 {
-    "productId": 453,
-    "productName": "mobile",
-    "brand": "samsung",
+    "productId": 101,
+    "productName": "Mobile",
+    "brand": "Samsung",
     "price": 20000
 }
 
 ###
 
 
-### Get All Products
+### GET ALL PRODUCTS
 GET http://localhost:3000/product-api/products
 
 ###
 
 
-### Get Product by productId
-GET http://localhost:3000/product-api/products/453
+### GET PRODUCT BY ID
+GET http://localhost:3000/product-api/products/101
 
 ###
 
 
-### Update Product
-PUT http://localhost:3000/product-api/products/453
+### UPDATE PRODUCT
+PUT http://localhost:3000/product-api/products/101
 Content-Type: application/json
 
 {
-    "productName": "watch",
-    "brand": "samsung",
+    "productName": "Watch",
+    "brand": "Samsung",
     "price": 15000
 }
 
 ###
 
 
-### Delete Product
-DELETE http://localhost:3000/product-api/products/453
-
-###
+### DELETE PRODUCT
+DELETE http://localhost:3000/product-api/products/101

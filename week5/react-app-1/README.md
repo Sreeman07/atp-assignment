@@ -1,16 +1,55 @@
-# React + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-Currently, two official plugins are available:
+### User List UI using React + Tailwind CSS
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+This project is a responsive User List application built using:
 
-## React Compiler
+React.js
+Vite
+Tailwind CSS
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+The application displays user cards with profile images, names, and email addresses.
 
-## Expanding the ESLint configuration
+### Features
+Responsive grid layout
+Reusable React components
+User profile cards
+Navbar and Footer components
+Tailwind CSS styling
+Dynamic rendering using map()
+Project Structure
+src
+│
+├── App.jsx
+├── App.css
+│
+├── assets
+│   └── component
+│       ├── navbar.jsx
+│       ├── userlist.jsx
+│       └── footer.jsx
+        |__ product.jsx
+│
+├── main.jsx
+└── index.css
+Technologies Used
+React.js
+Vite
+Tailwind CSS
+JavaScript (ES6)
+Components
+Navbar
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Displays the navigation section of the application.
+
+### UserList
+
+Reusable component used to display:
+
+User image
+User name
+User email
+
+### Footer
+
+Displays footer section of the application.
