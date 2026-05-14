@@ -1,11 +1,23 @@
-function find(arr,target){
-for(let i=0;i<arr.length;i++){
-    if(arr[i]===target){
-        return "found"
-}
-}
+// Function to search for a target element in an array
+function find(arr, target) {
+
+    // Loop through each element of the array
+    for (let i = 0; i < arr.length; i++) {
+
+        // Check if current element matches the target
+        if (arr[i] === target) {
+
+            // Return "found" if target exists in array
+            return "found";
+        }
+    }
+
+    // Return "not found" if target is absent
     return "not found";
 }
 
-let arr=[3,2,5,3,6]
-console.log(find(arr,2))
+// Array of numbers
+let arr = [3, 2, 5, 3, 6];
+
+// Call the function and print the result
+console.log(find(arr, 2));
