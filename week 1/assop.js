@@ -1,3 +1,4 @@
+// Employee data
 const employees = [
   {
     eno: 101,
@@ -25,20 +26,46 @@ const employees = [
     marks: [90, 85, 87],
   },
 ];
-/*1. Insert new Emp at 2nd position
-2. Remove an emp with name "Kiran"
-3.Change the last mark 95 to 75 of emp  "Sneha"*/
-employees.splice(2,0,{
-    eno:106,
-    name:"sreeman",
-    marks:[55,66,77]
-},)
-console.log(employees)
-const updatedEmployees = employees.filter(emp => emp.name !== "Kiran");
-console.log(updatedEmployees)
-const sneha = employees.find(emp => emp.name === "Sneha");
+
+/*
+1. Insert new employee at 2nd position
+2. Remove employee with name "Kiran"
+3. Change Sneha's last mark from 95 to 75
+*/
+
+
+// Insert a new employee at index 2 (3rd position)
+employees.splice(2, 0, {
+  eno: 106,
+  name: "sreeman",
+  marks: [55, 66, 77]
+});
+
+// Display updated employee list after insertion
+console.log(employees);
+
+
+// Remove employee whose name is "Kiran"
+const updatedEmployees = employees.filter(
+  emp => emp.name !== "Kiran"
+);
+
+// Display employee list after removal
+console.log(updatedEmployees);
+
+
+// Find employee named "Sneha"
+const sneha = employees.find(
+  emp => emp.name === "Sneha"
+);
+
+// Update Sneha's last mark to 75
 if (sneha) {
   sneha.marks[sneha.marks.length - 1] = 75;
 }
-console.log(sneha)
+
+// Display Sneha's updated details
+console.log(sneha);
+
+// Display final employee array
 console.log(employees);
